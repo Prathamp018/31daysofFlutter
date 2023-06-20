@@ -1,121 +1,163 @@
 import 'package:flutter/material.dart';
-
 import 'package:flutter_cataloge/utilsss/routes.dart';
 
-class LoginPage extends StatefulWidget {
+class LoginPage extends StatefulWidget{
   @override
-
-  _LoginpageState createState() => _LoginpageState();
+  _LoginPageState createState()=>_LoginPageState();
 }
 
-class _LoginpageState extends State<LoginPage> {
-  String name =" ";
-  bool changeButton=false;
+class _LoginPageState extends State<LoginPage>{
+
+  String name ="  ";
+  bool changebutton =false;
+
+  final _formkey = GlobalKey<FormState>();
+
+  moveToHome (BuildContext context) async{
+   
+   if(_formkey.currentState!.validate()){
+    setState(() {
+      changebutton=true;
+    });
+
+    await Future.delayed(Duration(seconds: 1));
+    await Navigator.pushNamed(context, Myroutes.homeRoute);
+
+    setState(() {
+      changebutton=false;
+
+    });
+   }
+  }
 
   @override
-  Widget build(BuildContext context){
-    return Material(
-    
-    color: Colors.white,
-    child: SingleChildScrollView(
-      child:
-       Column(
-        children: [
-        
-        Image.asset('assetsss/imagesss/loginn_image.jpg',fit: BoxFit.cover,),
+  Widget build (BuildContext context){
 
-        SizedBox(
-          height: 20,
-        ),
+    return Material (
 
-          Text("Welcome Boi",
-         style: TextStyle(
-          fontSize: 30,
-          color: Colors.blue,
-          fontWeight: FontWeight.bold,
-         ),
-         ),
-
-          SizedBox(
-          height: 20,
-        ),
-         
-         Padding(
-          padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 30.0)),
-
-    
-           Column(
-            children: [
-            TextFormField(
-              decoration: InputDecoration(
-                hintText: "Enter Username",
-                labelText: "Username"
-              ),
-            ),
-
-            TextFormField(
-              obscureText: true,
-              decoration: InputDecoration(
-                hintText: "Enter password",
-                labelText: "Password"
-              ),
-            ),
-
-           SizedBox(
-          height: 20,
-            ),
+      color: Colors.white,
+      child:  SingleChildScrollView(
+        child:Form (
+          key:_formkey,
           
-          InkWell(
-            onTap: () async {
-              setState(() {
-                changeButton=true;
-              });
-
-              await Future.delayed(Duration (seconds: 1));
-              Navigator.pushNamed(context, Myroutes.homeRoute);
-            },
-
-            child: AnimatedContainer(
-              duration: Duration(seconds: 1),
-              width : changeButton ? 50:150,
-              height: 50,
-              alignment :Alignment.center,
-              
-              child: changeButton
-              ?Icon(Icons.done,
-              color: Colors.white,
-              )
-              
-              :Text("Login", style: TextStyle( color: Colors.white,
-              fontWeight: FontWeight.bold,
-              fontSize: 18
-              ),),
+          child:Column(
             
-            decoration: BoxDecoration(
-              color: Colors.purple,
-              borderRadius: BorderRadius.circular(changeButton ? 50 : 8)
-             ),
+            children: [
+             
+             Image.asset("assetsss/imagesss/hey_image.png",
+             fit: BoxFit.cover,),
+
+             const SizedBox(height: 20,),
+
+             Text(
+              "Welcome $name",
+              style: const TextStyle (
+                fontSize: 28,
+                fontWeight: FontWeight.bold,
               ),
-          )
+             ),
+
+            const SizedBox(height: 20,),
+          
+           const Padding(padding:EdgeInsets.symmetric(
+            vertical: 16, horizontal: 32.0)
+             ),
+             
+            
+              Column(
+
+                children: [
+                  TextFormField (
+                    decoration:  const InputDecoration(
+                      hintText: "Enter username",
+                      labelText: "Username",
+
+                    ),
+
+                    validator: (value) {
+                      if (value!.isEmpty){
+                        return "Username cant be empty";
+                      }
+                      return null;
+                    },
 
 
+                    onChanged: (value) {
+                      name:value;
+                      setState(() {
+                        
+                      });
+                    },
+                  ),
+
+                  TextFormField (
+                     obscureText: true,
+                    decoration: const  InputDecoration(
+                      hintText: "Enter password",
+                      labelText: "passworde",
+
+                    ),
+
+                    validator:(value) {
+                      if (value!.isEmpty){
+                        return "password cant be empty";}
+
+                     else if (value.length < 6){
+                        return "lenght should be at least 6";
+                      
+                      }
+                      return null;
+                    },
+                  ),
+                
+                SizedBox(height: 20,),
+
+                Material(
+
+                  color: Colors.deepPurple,
+                  borderRadius: BorderRadius.circular(changebutton ? 50 : 8),
+
+                  child: InkWell (
+                    onTap: () => moveToHome(context),
+
+                    child: AnimatedContainer(duration: const Duration(seconds: 1),
+                    width: changebutton ?50 :150,
+                    height: 50,
+                    alignment:Alignment.center,
+
+                    child : changebutton ? const Icon
+                        (Icons.done ,
+                        color: Colors.white,
+                        )
+                        
+                        :
+                        const Text('Login',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 18, ))
+
+                    ),
+
+                    
+                  ),
+
+                  
 
 
+                )
 
+                ],
 
+              ),
 
-          // ElevatedButton(onPressed:() {
-          //   print("hi pratham");
-          //  }, 
-          //  child: Text ("login"),
-          //    style: TextButton.styleFrom(),)
-              ],
-            )
-
-         ],
-         )
-         )
-      );
+             ]
+           ),
+        ),
+        
+        
+       ),
+      
+    );
   }
 }
-

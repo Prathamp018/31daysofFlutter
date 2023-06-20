@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_cataloge/Widgets/drawer.dart';
+
 
 class Homepage extends StatelessWidget {
 
@@ -21,7 +23,7 @@ class Homepage extends StatelessWidget {
       ),
     ),
 
-    drawer: Drawer(),
+    drawer: MyDrawer(),
     );
   }
 }
