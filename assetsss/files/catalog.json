@@ -1,0 +1,95 @@
+{
+
+"products" :[
+
+
+        {
+            "id" :1,
+            "name": "Nothing Phone 1",
+            "desc": "1st Smartphone from Nothing",
+            "price": 299,
+            "color":"#000080",
+            "image":"https://m.media-amazon.com/images/I/61+EkNTUi5L.jpg"
+        },
+
+
+
+        {
+            "id" :2,
+            "name": "Iphone 14 pro max",
+            "desc": "Latest Smartphone from Apple",
+            "price": 999,
+            "color":"#008080",
+            "image":"https://cdn.shopify.com/s/files/1/0245/9382/5867/products/apple-mobile-phones-apple-iphone-12-pro-max-128gb-graphite-16175753003083_600x.jpg?v=1647757701"
+        },
+
+
+
+        {
+            "id" :3,
+            "name": "Google pixel 7a",
+            "desc": "Best Stock anroid smartphone",
+            "price": 399,
+            "color":"#808000",
+            "image":"https://m.media-amazon.com/images/I/31dvYb8T8jL._SX300_SY300_QL70_FMwebp_.jpg"
+        },
+
+
+
+        {
+            "id" :4,
+            "name": "Samsung Galaxy s23 ultra",
+            "desc": "Flagship smartphone with amazing camera",
+            "price": 899,
+            "color":"#800000",
+            "image":"https://m.media-amazon.com/images/I/41WpkxwZ+WL._SY300_SX300_.jpg"
+        },
+
+
+
+        {
+            "id" :5,
+            "name": "Apple aipords ",
+            "desc": "Truely Wireless Airbuds",
+            "price": 599,
+            "color":"#00FFFF",
+            "image":"https://www.apple.com/newsroom/images/product/airpods/standard/Apple-AirPods-Pro-2nd-gen-hero-220907_big.jpg.large.jpg"
+        },
+
+
+
+        {
+            "id" :6,
+            "name": "Scullcandy Earbuds",
+            "desc": "Quiet Confort earbuds",
+            "price": 499,
+            "color":"#0000FF",
+            "image":"https://m.media-amazon.com/images/I/61ETx+hCkWL._SX522_.jpg"
+        },
+
+
+
+        {
+            "id": 7,
+            "name": "M1 Macbook Air",
+            "desc": "Apple Macbook air with apple silicon",
+            "price": 1099,
+            "color": "#e0bfae",
+            "image":"https://img2.gadgetsnow.com/gd/images/products/additional/large/G214045_View_1/computer-laptop/laptops/new-apple-macbook-air-with-apple-m1-chip-13-inch-8gb-ram-256gb-ssd-silver-mgn93hn-a-latest-model-.jpg"
+        },
+
+
+
+        {
+            "id": 8,
+            "name": "iPad Pro",
+            "desc": "Apple iPad Pro 2020 edition",
+            "price": 799,
+            "color": "#f73984",
+            "image":"https://www.notebookcheck.net/fileadmin/_processed_/4/8/csm_Apple_iPad_Pro_12.9_2022_4292_2a13c08bb5.jpg"
+        }
+
+
+
+]
+}
