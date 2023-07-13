@@ -1,34 +1,27 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_cataloge/models/catalog.dart';
+import 'package:flutter_cataloge/pages/login_page.dart';
+import 'package:flutter_cataloge/utils/routes.dart';
+import 'package:flutter_cataloge/pages/home_page.dart';
+import 'themes.dart';
 
-class ItemWidget extends StatelessWidget {
-  final Item item;
+void main() {
+  runApp(MyApp());
+}
 
-  const ItemWidget ({Key? key, required this.item}) : assert(item != null),
-
-  super(key: key);
-
+class MyApp extends StatelessWidget {
   @override
-  Widget build (BuildContext context){
-    return Card(
-
-      child: ListTile(
-        onTap: () {
-          print("${item.name} pressed");
-        },
-
-        leading: Image.network(item.image),
-        title: Text(item.name),
-        subtitle: Text(item.desc),
-        trailing: Text("\$${item.price}",
-        textScaleFactor: 1.5,
-        style: TextStyle(
-          color: Colors.deepPurple,
-          fontWeight: FontWeight.bold,
-        )
-        ,),
-
-      ),
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      themeMode: ThemeMode.light,
+      theme: MyTheme.lightTheme(context),
+      darkTheme: MyTheme.darkTheme(context),
+      debugShowCheckedModeBanner: false,
+      initialRoute: MyRoutes.homeRoute,
+      routes: {
+        "/": (context) => LoginPage(),
+        MyRoutes.homeRoute: (context) => HomePage(),
+        MyRoutes.loginRoute: (context) => LoginPage()
+      },
     );
   }
 }

@@ -5,11 +5,11 @@ class MyTheme {
   static ThemeData lightTheme(BuildContext context) => ThemeData(
       primarySwatch: Colors.deepPurple,
       fontFamily: GoogleFonts.poppins().fontFamily,
-      appBarTheme: const AppBarTheme(
+      appBarTheme: AppBarTheme(
         color: Colors.white,
         elevation: 0.0,
         iconTheme: IconThemeData(color: Colors.black),
-        toolbarTextStyle:TextStyle(color: Colors.deepPurple),
+        textTheme: Theme.of(context).textTheme,
       ));
 
   static ThemeData darkTheme(BuildContext context) => ThemeData(
